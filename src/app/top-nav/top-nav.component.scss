@@ -1,0 +1,13 @@
+.tp-container {
+  height: 72px;
+  padding: 20px;
+  background: #e6e6e6;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+
+
+  h2 {
+    margin: 0;
+  }
+}

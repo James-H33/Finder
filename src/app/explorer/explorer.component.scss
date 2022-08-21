@@ -1,0 +1,21 @@
+.explorer-container {
+  width: calc(100vw - 200px);
+  height: calc(100vh - 72px);
+  overflow-y: scroll;
+  box-sizing: border-box;
+  padding-bottom: 20px;
+
+  mat-list {
+    .mat-list-item {
+      height: 35px;
+      cursor: pointer;
+
+      .mat-list-item-content {
+        .mat-list-text {
+          padding-left: 5px !important;
+        }
+      }
+
+    }
+  }
+}

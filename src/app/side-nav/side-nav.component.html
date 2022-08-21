@@ -1,0 +1,17 @@
+<div class="side-nav-container">
+  <h3>
+    Recent
+  </h3>
+
+  <div class="side-nav-recent-list">
+    <mat-list role="list">
+      <mat-list-item
+        *ngFor="let dir of recentDir"
+        class="side-nav-recent-list-item"
+        role="listitem">
+        <mat-icon mat-list-icon>folder</mat-icon>
+        <div mat-line>{{dir}}</div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>

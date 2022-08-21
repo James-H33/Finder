@@ -1,0 +1,12 @@
+<div class="explorer-container">
+  <mat-list role="list">
+    <mat-list-item
+      *ngFor="let file of fileEntries"
+      (click)="openDir(file.name)"
+      role="listitem"
+    >
+      <mat-icon mat-list-icon>{{file.name | filename }}</mat-icon>
+      <div mat-line>{{file.name}}</div>
+    </mat-list-item>
+  </mat-list>
+</div>

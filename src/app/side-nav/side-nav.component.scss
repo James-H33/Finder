@@ -1,0 +1,26 @@
+.side-nav-container {
+  width: 200px;
+  height: 100%;
+  min-height: calc(100vh - 72px);
+  padding: 20px;
+  box-sizing: border-box;
+  background: #e6e6e6;
+  // overflow-y: scroll;
+
+  .side-nav-recent-list {
+    mat-list {
+      mat-list-item.side-nav-recent-list-item {
+        height: 35px;
+        cursor: pointer;
+
+        > span.mat-list-item-content {
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  h5 {
+    margin: 0;
+  }
+}
