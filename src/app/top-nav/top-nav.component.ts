@@ -8,7 +8,8 @@ import { AppStateService } from '../services/app-state.service';
   styleUrls: ['./top-nav.component.scss']
 })
 export class TopNavComponent implements OnInit {
-  public currentDir = '/';
+  public currentDir = 'home';
+  public path: string[] = [];
 
   constructor(
     private state: AppStateService
@@ -16,10 +17,41 @@ export class TopNavComponent implements OnInit {
 
   public ngOnInit() {
     this.state.watch().subscribe((s: AppState) => {
+      this.path = s.path;
+
       if (s.currentDir) {
         this.currentDir = s.currentDir;
       } else {
-        this.currentDir = '/';
+        this.currentDir = 'home';
+      }
+    });
+  }
+
+  public async toRoot() {
+    this.state.update((s: AppState) => {
+      return {
+        ...s,
+        currentDir: '',
+        path: []
+      }
+    });
+  }
+
+  public async navigateTo(pathname: string) {
+    let path = this.path.slice();
+    let currPath: any = null;
+
+    while (currPath !== pathname) {
+      currPath = path.pop();
+    }
+
+    path.push(currPath);
+
+    this.state.update((s: AppState) => {
+      return {
+        ...s,
+        currentDir: currPath,
+        path
       }
     });
   }

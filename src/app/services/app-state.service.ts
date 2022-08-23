@@ -13,10 +13,20 @@ export class AppStateService {
     return this.state$.asObservable();
   }
 
-  public update(state: AppState) {
-    const newState = { ...this.state, ...state };
+  public update(state: (s: AppState) => | AppState) {
+    let myState = {};
+
+    if (typeof state === 'function') {
+      myState = state(this.state);
+    } else {
+      myState = { ...state as any };
+    }
+
+    const newState = { ...this.state, ...myState };
 
     this.state = newState;
+
+    console.log(this.state);
 
     this.state$.next(this.state);
   }

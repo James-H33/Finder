@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { AppState } from '../models/app-state.model';
+import { AppStateService } from '../services/app-state.service';
 
 @Component({
   selector: 'app-side-nav',
@@ -8,14 +10,19 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class SideNavComponent implements OnInit {
   public recentDir: string[] = [
+    "Home",
     "Arrow",
     "Document",
     "Work"
   ];
 
-  constructor() { }
+  public path: string[] = [];
+
+  constructor(
+    private state: AppStateService
+  ) { }
 
   ngOnInit() {
+    this.state.watch().subscribe(s => this.path = s.path)
   }
-
 }

@@ -1,11 +1,22 @@
 .tp-container {
-  height: 72px;
+  height: 85px;
   padding: 20px;
   background: #e6e6e6;
   box-sizing: border-box;
   display: grid;
   grid-template-columns: 200px 1fr;
 
+  .tp-container-path {
+    display: flex;
+    column-gap: 6px;
+    grid-column: 2 / 3;
+    height: 30px;
+    align-items: center;
+  }
+
+  .tp-container-path-content {
+    display: flex;
+  }
 
   h2 {
     margin: 0;
