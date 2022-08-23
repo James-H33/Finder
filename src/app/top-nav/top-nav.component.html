@@ -2,6 +2,19 @@
   <h2>Finder</h2>
 
   <div class="tp-current-path">
-    <h2>{{currentDir}}</h2>
+    <h2>/{{currentDir}}</h2>
+  </div>
+
+  <div class="tp-container-path">
+    <div class="tp-container-path-content">
+      <span (click)="toRoot()">/ Home</span>
+    </div>
+
+    <ng-container *ngFor="let name of path; let i = index">
+      <div class="tp-container-path-content">
+        <span (click)="navigateTo(name)">/ {{name}}</span>
+      </div>
+    </ng-container>
+
   </div>
 </div>
