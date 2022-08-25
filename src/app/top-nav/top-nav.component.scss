@@ -16,6 +16,13 @@
 
   .tp-container-path-content {
     display: flex;
+    cursor: pointer;
+    font-weight: bold;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
+
+    &:hover {
+      color: rgb(0, 91, 188);
+    }
   }
 
   h2 {

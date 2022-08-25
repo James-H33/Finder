@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { invoke } from "@tauri-apps/api";
 import { copyFile, BaseDirectory, readDir, FileEntry } from '@tauri-apps/api/fs';
 
 @Injectable({
@@ -17,6 +18,10 @@ export class FileSystemService {
 
   public async readDir(path: string, options?: any): Promise<any> {
     try {
+
+      const myResults = await invoke('app_read_dir', { dir: path });
+      console.log(myResults);
+
       const showAll = false;
 
       let results = await readDir(path, { dir: BaseDirectory.Home });
